@@ -1,0 +1,6 @@
+dist/
+build/
+__pycache__/
+
+twister.spec
+geckodriver.log
