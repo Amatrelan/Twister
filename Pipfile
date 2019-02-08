@@ -8,6 +8,7 @@ flake8 = "*"
 importmagic = "*"
 epc = "*"
 yapf = "*"
+twine = "*"
 
 [packages]
 selenium = "*"
