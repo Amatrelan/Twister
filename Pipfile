@@ -9,9 +9,12 @@ importmagic = "*"
 epc = "*"
 yapf = "*"
 twine = "*"
+pytest = "*"
+pytest-cov = "*"
 
 [packages]
 selenium = "*"
+pytest-cov = "*"
 
 [requires]
 python_version = "3.7"

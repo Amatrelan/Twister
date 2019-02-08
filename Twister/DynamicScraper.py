@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-import subprocess
 from shutil import which
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import TimeoutException, InvalidArgumentException
 from selenium.webdriver.firefox.options import Options
 
 
@@ -18,19 +17,16 @@ class DynamicScraper:
 
     delay = 3
 
-    def __init__(self, link, extra_args=None):
-        self.link = link
+    def __init__(self):
         self.driver = self.GetDriver()
-        self.driver.get(link)
-        video_src = self.FindVideoSrc()
-        self.driver.close()
-        subprocess.call(["mpv", video_src, '&'])
 
     def GetDriver(self):
         if (which("geckodriver") is not None):
+            print("Initialized Geckodriver")
             driver = webdriver.Firefox(options=self.options)
 
         elif (which("chromedriver") is not None):
+            print("Initialized Chromedriver")
             driver = webdriver.Chrome(options=self.options)
 
         else:
@@ -42,21 +38,23 @@ class DynamicScraper:
 
         return driver
 
-    def FindVideoSrc(self):
+    def FindVideoSrc(self, link):
         try:
+            self.driver.get(link)
             print("Trying to find video")
-            if (self.link.find("twist") > 0):
-                print("Found twist")
+            if (link.find("twist") > 0):
                 element = WebDriverWait(self.driver, self.delay).until(
                     EC.presence_of_element_located((By.CSS_SELECTOR,
                                                     "video[src*='anime']")))
 
             else:
-                print("Found other")
                 element = WebDriverWait(self.driver, self.delay).until(
                     EC.presence_of_element_located((By.CSS_SELECTOR, "video")))
 
-            return element.get_attribute("src")
+            temp = element.get_attribute("src")
+            self.driver.close()
+            return temp
 
-        except TimeoutException:
+        except (TimeoutException, AttributeError, InvalidArgumentException):
+            self.driver.close()
             print("Page loading was too slow")
