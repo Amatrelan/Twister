@@ -1,6 +1,4 @@
 * Twister
-Is simple wrapper around mpv to play anime videos from twister.moe website. 
-
 Many webpages used dynamic loading so video source finding don't work with mpv (youtube-dl) so I created this simple python script.
 
 * Requirements
