@@ -6,7 +6,10 @@ Many webpages used dynamic loading so video source finding don't work with mpv (
 - Pip (pipenv)
 - Selenium installed though pip / pipenv
 - Chromedriver or Geckodriver
-  - If you installed Chromedriver you need chromium / chorme and if Geckodriver you need firefox
-    
+  - If you installed Chromedriver you need chromium / chorme and if Geckodriver
+    you need firefox
+* Installation
+On project folder run `python setup.py install` or add `--user` to end to
+install locally
 * Why tool like this
 I prefer watch something as I code and usually I have multi-head setup but nowadays I use a lot my laptop with one monitor so browsers are quite screenspace heavy tools for single monitor.
