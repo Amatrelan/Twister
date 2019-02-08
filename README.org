@@ -3,5 +3,12 @@ Is simple wrapper around mpv to play anime videos from twister.moe website.
 
 Twister.moe uses dynamic web loading so video source finding don't work with youtube-dl so I created this simple python script
 
+* Requirements
+- Python3 
+- Pip (pipenv)
+- Selenium installed though pip / pipenv
+- Chromedriver or Geckodriver
+  - If you installed Chromedriver you need chromium / chorme and if Geckodriver you need firefox
+    
 * Why tool like this
 I prefer watch something sametime as I code and usually I have multi head setup but nowadays I use a lot my laptop with one monitor so browsers are quite screenspace heavy tools for single monitor.
