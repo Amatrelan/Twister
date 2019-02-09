@@ -26,24 +26,22 @@ class DynamicScraper:
         """Check what dirivers user has installed on computer and tries use them."""
         if which("geckodriver") is not None:
             print("Initialized Geckodriver")
-            driver = webdriver.Firefox(
+            self.driver = webdriver.Firefox(
                 options=self.options, service_log_path="/dev/null"
             )
 
         elif which("chromedriver") is not None:
             print("Initialized Chromedriver")
-            driver = webdriver.Chrome(options=self.options)
+            self.driver = webdriver.Chrome(options=self.options)
 
-        else:
-            print(
+        if self.driver is None:
+            raise ValueError(
                 "You need to have geckodriver or "
                 "chromedriver installed and in PATH to use this."
                 "And if you use chromedriver, you need chrome installed,"
                 "and same if you use geckodriver, you need firefox"
             )
-            return None
-
-        return driver
+        return self.driver
 
     def FindVideoSrc(self, link):
         """Try to find video src attribute from link what is provided.
