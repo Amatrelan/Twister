@@ -2,7 +2,11 @@
 from shutil import which
 
 from selenium import webdriver
-from selenium.common.exceptions import InvalidArgumentException, TimeoutException
+from selenium.common.exceptions import (
+    InvalidArgumentException,
+    TimeoutException,
+    NoSuchElementException,
+)
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
@@ -16,7 +20,7 @@ class DynamicScraper:
     link = None
     options = Options()
     options.headless = True
-    delay = 3
+    delay = 10
 
     def __init__(self):
         """Initialize DynamicScraper class and creates sametime new driver."""
@@ -57,6 +61,7 @@ class DynamicScraper:
             self.driver.get(link)
             print("Trying to find video")
             if link.find("twist") > 0:
+                """Works with twist.moe site"""
                 element = WebDriverWait(self.driver, self.delay).until(
                     EC.presence_of_element_located(
                         (By.CSS_SELECTOR, "video[src*='anime']")
@@ -64,6 +69,15 @@ class DynamicScraper:
                 )
 
             else:
+                """Try find video element and click it.
+                Some hide src before video is actually clicked"""
+                try:
+                    WebDriverWait(self.driver, self.delay).until(
+                        EC.presence_of_element_located((By.CSS_SELECTOR, "video"))
+                    ).click()
+                except NoSuchElementException:
+                    print("No Suck element found")
+                    pass
                 element = WebDriverWait(self.driver, self.delay).until(
                     EC.presence_of_element_located((By.CSS_SELECTOR, "video"))
                 )
@@ -76,3 +90,11 @@ class DynamicScraper:
             self.driver.close()
             print("Page loading failed")
             return None
+
+
+if __name__ == "__main__":
+    import sys
+
+    test = DynamicScraper()
+    source = sys.argv[1]
+    test.FindVideoSrc(source)
