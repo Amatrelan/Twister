@@ -1,0 +1,23 @@
+[build-system]
+requires = ["flit"]
+build-backend = "flit.buildapi"
+
+[tool.flit.metadata]
+module = "Twister"
+author = "Jarmo Riikonen"
+author-email = "amatrelan@gmail.com"
+home-page = "https://github.com/amatrelan/twister"
+classifiers = ["License :: OSI Approved :: MIT License"]
+requires = [
+     "selenium"
+]
+requires-python="3"
+
+[tool.flit.metadata.requires-extra]
+test = [
+     "pytest",
+     "pytest-cov",
+]
+
+[tool.flit.scripts]
+twister="Twister.command_line:main"
