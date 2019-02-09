@@ -18,3 +18,13 @@ Many webpages used dynamic loading so video source finding don't work with mpv
 I prefer watch something as I code and usually I have multi-head setup but
 nowadays I use a lot my laptop with one monitor so browsers are quite
 screenspace heavy tools for single monitor.
+
+* Example way to use this tool
+- Well install this tool (duh)
+- Install newsboat
+  - Add twist.moe rss to newsboat urls file
+- Add to newsboat new macro "macro t set browser "twister %u"; open-in-browser ;
+  set browser "elinks %u""
+- Now you can use keyboard shortcut ", t" at news post position to open link
+  with twister.
+- Enjoy the show

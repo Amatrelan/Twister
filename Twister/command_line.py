@@ -9,17 +9,16 @@ def main(link=None):
     if link is not None:
         tempLink = link
     else:
-        tempLink = sys.argv[1]
-        pass
+        try:
+            tempLink = sys.argv[1]
+        except IndexError:
+            print("This cmd tool need one argument what is link to video website")
+            return -1
 
     scraper = DynamicScraper()
-    try:
-        if scraper is not None:
-            source = scraper.FindVideoSrc(tempLink)
-            subprocess.call(["mpv", source])
-    except IndexError:
-        scraper.driver.close()
-        print("This cmd tool need one argument what is link to video website")
+    if scraper is not None:
+        source = scraper.FindVideoSrc(tempLink)
+        subprocess.call(["mpv", source])
 
 
 if __name__ == "__main__":
