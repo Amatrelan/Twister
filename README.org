@@ -23,8 +23,8 @@ screenspace heavy tools for single monitor.
 - Well install this tool (duh)
 - Install newsboat
   - Add twist.moe rss to newsboat urls file
-- Add to newsboat new macro "macro t set browser "twister %u"; open-in-browser ;
-  set browser "elinks %u""
+- Add to newsboat new macro =macro t set browser "twister %u"; open-in-browser ;
+  set browser "elinks %u"=
 - Now you can use keyboard shortcut ", t" at news post position to open link
   with twister.
 - Enjoy the show
