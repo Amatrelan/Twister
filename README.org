@@ -1,5 +1,6 @@
 * Twister
-Many webpages used dynamic loading so video source finding don't work with mpv (youtube-dl) so I created this simple python script.
+Many webpages used dynamic loading so video source finding don't work with mpv
+(youtube-dl) so I created this simple python script.
 
 * Requirements
 - Python3 
@@ -8,8 +9,12 @@ Many webpages used dynamic loading so video source finding don't work with mpv (
 - Chromedriver or Geckodriver
   - If you installed Chromedriver you need chromium / chorme and if Geckodriver
     you need firefox
+
 * Installation
-On project folder run `python setup.py install` or add `--user` to end to
-install locally
+- On project folder run "python setup.py install" if you want global
+  installation and "python setup.py install --user" if local.
+
 * Why tool like this
-I prefer watch something as I code and usually I have multi-head setup but nowadays I use a lot my laptop with one monitor so browsers are quite screenspace heavy tools for single monitor.
+I prefer watch something as I code and usually I have multi-head setup but
+nowadays I use a lot my laptop with one monitor so browsers are quite
+screenspace heavy tools for single monitor.
