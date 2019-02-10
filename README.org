@@ -11,8 +11,14 @@ Many webpages used dynamic loading so video source finding don't work with mpv
     you need firefox
 
 * Installation
-- On project folder run "python setup.py install" if you want global
-  installation and "python setup.py install --user" if local.
+#+BEGIN_SRC none
+pip install git+https://github.com/amatrelan/dvscraper.git --user
+#+END_SRC
+#+BEGIN_SRC none
+pip install git+https://github.com/amatrelan/twister.git --user --no-build-isolation
+#+END_SRC
+
+/note: If someone can explain how this can be made simpler, tell me./
 
 * Why tool like this
 I prefer watch something as I code and usually I have multi-head setup but
