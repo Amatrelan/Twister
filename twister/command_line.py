@@ -1,7 +1,7 @@
 import subprocess
 import sys
 
-from Twister.DynamicScraper import DynamicScraper
+from dvscraper import dynamic_scraper
 
 
 def main(link=None):
@@ -15,9 +15,9 @@ def main(link=None):
             print("This cmd tool need one argument what is link to video website")
             return -1
 
-    scraper = DynamicScraper()
+    scraper = dynamic_scraper.DynamicScraper()
     if scraper is not None:
-        source = scraper.FindVideoSrc(tempLink)
+        source = scraper.find_video_src(tempLink)
         subprocess.call(["mpv", source])
 
 
