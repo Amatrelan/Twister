@@ -1,23 +1,24 @@
+[tool.poetry]
+name = "twister"
+version = "0.1.0"
+description = "Commandline tool for dynamic websites"
+authors = ["Jarmo Riikonen <amatrelan@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+dvscraper = {git = "https://github.com/amatrelan/dvscraper"}
+
+[tool.poetry.dev-dependencies]
+eradicate = "^1.0"
+pytest = "^4.2"
+pytest-flake8 = "^1.0"
+pytest-mccabe = "^0.1.0"
+tox = "^3.7"
+
 [build-system]
-requires = ["flit"]
-build-backend = "flit.buildapi"
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
 
-[tool.flit.metadata]
-module = "Twister"
-author = "Jarmo Riikonen"
-author-email = "amatrelan@gmail.com"
-home-page = "https://github.com/amatrelan/twister"
-classifiers = ["License :: OSI Approved :: MIT License"]
-requires = [
-     "selenium"
-]
-requires-python="3"
-
-[tool.flit.metadata.requires-extra]
-test = [
-     "pytest",
-     "pytest-cov",
-]
-
-[tool.flit.scripts]
-twister="Twister.command_line:main"
+[tool.poetry.scripts]
+twister = "twister.command_line:main"
