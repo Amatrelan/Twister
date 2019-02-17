@@ -5,20 +5,14 @@ Many webpages used dynamic loading so video source finding don't work with mpv
 * Requirements
 - Python3 
 - Pip (pipenv)
-- Selenium installed though pip / pipenv
 - Chromedriver or Geckodriver
   - If you installed Chromedriver you need chromium / chorme and if Geckodriver
     you need firefox
 
 * Installation
-#+BEGIN_SRC none
-pip install git+https://github.com/amatrelan/dvscraper.git --user
+#+BEGIN_SRC sh
+python setup.py install (--user)
 #+END_SRC
-#+BEGIN_SRC none
-pip install git+https://github.com/amatrelan/twister.git --user --no-build-isolation
-#+END_SRC
-
-/note: If someone can explain how this can be made simpler, tell me./
 
 * Why tool like this
 I prefer watch something as I code and usually I have multi-head setup but
