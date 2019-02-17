@@ -1,0 +1,33 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+flake8 = "*"
+pep8-naming = "*"
+flake8-import-order = "*"
+flake8-blind-except = "*"
+flake8-builtins = "*"
+flake8-logging-format = "*"
+flake8-docstrings = "*"
+nose = "*"
+jedi = "*"
+json-rpc = "*"
+service-factory = "*"
+epc = "*"
+importmagic = "*"
+ipython = "*"
+yapf = "*"
+isort = "*"
+
+[packages]
+selenium = "*"
+importmagic = "*"
+epc = "*"
+
+[requires]
+python_version = "3.7"
+
+[pipenv]
+allow_prereleases = true

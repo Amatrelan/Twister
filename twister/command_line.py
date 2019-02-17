@@ -1,25 +1,24 @@
+#!/usr/bin/env python3
+"""Implements twister cli.
+
+This is used to create that simple cli tool for linux.
+"""
 import subprocess
 import sys
 
-from dvscraper import dynamic_scraper
+from .dynamic_scraper import DynamicScraper
 
 
 def main(link=None):
     """Create DynamicScraper for cmd use."""
-    if link is not None:
-        tempLink = link
-    else:
-        try:
-            tempLink = sys.argv[1]
-        except IndexError:
-            print("This cmd tool need one argument what is link to video website")
-            return -1
+    if link is None:
+        link = sys.argv[1]
 
-    scraper = dynamic_scraper.DynamicScraper()
+    scraper = DynamicScraper()
     if scraper is not None:
-        source = scraper.find_video_src(tempLink)
+        source = scraper.find_video_src(link)
         subprocess.call(["mpv", source])
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1])
